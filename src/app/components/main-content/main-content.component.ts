@@ -1,9 +1,8 @@
 import { Component, Input } from '@angular/core';
-import {MatCardModule} from '@angular/material/card';
 
 @Component({
   selector: 'app-main-content',
-  imports: [MatCardModule],
+  imports: [],
   templateUrl: './main-content.component.html',
   styleUrl: './main-content.component.scss'
 })

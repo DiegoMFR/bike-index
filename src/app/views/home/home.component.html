@@ -1,4 +1,4 @@
-<app-main-content [title]="'Search your bike!'">
+<app-main-content [title]="'Stolen bike finder'">
     <app-bike-input (searchEvent)="handleSearch($event)"></app-bike-input>
     <app-bikes-loader *ngIf="!formPristine()"></app-bikes-loader>
 </app-main-content>

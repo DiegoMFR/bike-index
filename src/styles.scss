@@ -1,6 +1,5 @@
 @use './styles/variables' as *;
 @use './styles/icons';
-@use '@angular/material' as mat;
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap');
@@ -10,11 +9,6 @@ html {
   min-height: 100%;
   margin: 0;
   color-scheme: light dark;
-  @include mat.theme((
-    color: mat.$green-palette,
-    typography: Roboto,
-    density: 0
-  ));
 }
 
 body {
