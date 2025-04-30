@@ -1,0 +1,32 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MainContentComponent } from './main-content.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+
+describe('MainContentComponent', () => {
+  let component: MainContentComponent;
+  let fixture: ComponentFixture<MainContentComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      schemas: [NO_ERRORS_SCHEMA],
+      imports: [MainContentComponent],
+    })
+      .compileComponents();
+
+    fixture = TestBed.createComponent(MainContentComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+  
+  it('should render the passed title in a h1 tag', () => {
+    const compiled = fixture.nativeElement;
+    component.title = 'Test Title';
+    fixture.detectChanges();
+    expect(compiled.querySelector('h1').textContent).toBe('Test Title');
+  }
+  );
+});

@@ -1,0 +1,25 @@
+<div class="bike-list">
+    <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Stolen Location</th>
+            <th>Status</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let bike of bikes">
+            <td>{{ bike.title }}</td>
+            <td>{{ bike.stolen_location }}</td>
+            <td>{{ bike.status }}</td>
+            <td>
+                <a href="bikes/{{bike.id}}"> 
+                    Go to bike 
+                </a>
+                
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</div>

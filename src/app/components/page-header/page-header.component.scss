@@ -1,0 +1,41 @@
+@use '../../../styles/variables' as *;
+
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+.app-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $primary-color-light; // primary color
+  padding: $padding $padding-large;
+  color: white;
+  box-shadow: $box-shadow;
+
+  .brand-logo-container {
+    display: flex;
+    align-items: center;
+
+    .brand-logo {
+      height: 40px;
+    }
+  }
+
+  .nav-links {
+    display: flex;
+    gap: $padding;
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-decoration: none;
+      font-size: $font-size-large;
+      transition: $transition;
+
+      &:hover {
+        opacity: 0.2;
+      }
+    }
+  }
+}

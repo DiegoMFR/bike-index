@@ -1,0 +1,8 @@
+@use '../../../styles/variables' as *;
+p {
+    padding: $padding;
+    box-shadow: $box-shadow;
+    background: white;
+    color: $secondary-color-light;
+    margin: 0;
+}

@@ -1,0 +1,21 @@
+<ng-container *ngIf="store.loading(); else dataBlock">
+    <div class="loading-state">
+      <p>Loading bikes...</p>
+    </div>
+  </ng-container>
+  
+  <ng-template #dataBlock>
+    <ng-container *ngIf="store.bikes()?.length; else stateMessage">
+      <app-bike-list [bikes]="store.bikes()" />
+    </ng-container>
+  </ng-template>
+  
+  <ng-template #stateMessage>
+    <p class="error-msg" *ngIf="store.error(); else noResults">
+      {{ store.error() }}
+    </p>
+    <ng-template #noResults>
+      <p class="empty-msg">No bikes found.</p>
+    </ng-template>
+  </ng-template>
+  

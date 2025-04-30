@@ -1,0 +1,26 @@
+<div class="input-wrapper">
+  <form (ngSubmit)="submitValue()">
+    <div class="custom-form-field" [class.invalid]="city.invalid && city.touched">
+      <input
+        type="text"
+        [formControl]="city"
+        (blur)="updateErrorMessage()"
+        required
+        placeholder="Enter city"
+      />
+  
+      <div class="suffix-buttons">
+        <button type="button" *ngIf="city.value" (click)="clearValue()" aria-label="Clear">
+          <span class="material-icons">close</span>
+        </button>
+        <button type="submit" aria-label="Search">
+          <span class="material-icons">search</span>
+        </button>
+      </div>
+    </div>
+  </form>
+
+  <div class="error-message" *ngIf="city.invalid && city.touched">
+    {{ errorMessage() }}
+  </div>
+</div>

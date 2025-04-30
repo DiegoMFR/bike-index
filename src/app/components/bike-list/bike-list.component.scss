@@ -1,0 +1,56 @@
+@use '../../../styles/variables' as *;
+
+.bike-list {
+    table {
+        width: 100%;
+        border-collapse: separate;
+        table-layout: fixed;
+        border-spacing: 0;
+        background-color: white;
+        border-radius: $border-radius;
+        box-shadow: $box-shadow;
+        overflow: hidden;
+
+        th:first-child,
+        td:first-child {
+            width: 40%;
+            max-width: 40%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        thead {
+            background-color: $background-color-light;
+
+            th {
+                padding: $padding $padding-large;
+                font-weight: 600;
+                text-align: left;
+                color: #333;
+                border-bottom: 1px solid #e0e0e0;
+            }
+        }
+
+        tbody {
+            tr {
+                transition: background $transition;
+
+                &:hover {
+                    background-color: #f1f3f5;
+                }
+            }
+
+            td {
+                padding: $padding;
+                border-bottom: 1px solid #eee;
+                color: #444;
+                vertical-align: middle;
+            }
+
+            tr:last-child td {
+                border-bottom: none;
+            }
+        }
+    }
+}
