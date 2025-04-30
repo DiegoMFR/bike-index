@@ -12,18 +12,11 @@ html {
 }
 
 body {
-  background: $background-color-light;
+  background: $background-color;
   font-family: $font-family-body;
   margin: 0;
   padding: 0;
-  color: $secondary-color-light;
-}
-
-@media (prefers-color-scheme: dark) {
-  body {
-    background: $background-color-dark;
-    color: $secondary-color-dark;
-  }
+  color: $text-color;
 }
 
 html, body { height: 100%; }
@@ -31,15 +24,10 @@ html, body { height: 100%; }
 
 .iconButton {
   cursor: pointer;
-  background: $background-color-light;
+  background: $background-color;
   border-radius: $border-radius;
   padding: $padding;
   border: none;
   margin-left: $margin-small;
-  color: $secondary-color-light;
-
-  @media (prefers-color-scheme: dark) {
-      background: $background-color-dark;
-      color: $secondary-color-dark;
-  }
+  color: $secondary-color;
 }
