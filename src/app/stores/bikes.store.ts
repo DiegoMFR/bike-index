@@ -15,10 +15,6 @@ export class BikeStore {
   
   private nextPageToken = 1;
 
-  constructor() {
-    this.reset();
-  }
-
   public fetchBikes(city: string) {
     this.loading.set(true);
     this.bikeService.searchByProximity(city).pipe(

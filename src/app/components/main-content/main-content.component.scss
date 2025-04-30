@@ -27,5 +27,9 @@
       padding: $padding-large;
       border-radius: $border-radius;
       box-shadow: $box-shadow;
+
+      @media (max-width: $breakpoint-sm) {
+        padding: 0;
+      }
     }
 }

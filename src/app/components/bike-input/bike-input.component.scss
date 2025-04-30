@@ -14,18 +14,18 @@
     position: relative;
     display: flex;
     align-items: center;
-    border: 2px solid #ccc;
-    border-radius: 6px;
-    padding: 0.5rem 0.75rem;
+    border: 1px solid $secondary-color;
+    border-radius: $border-radius;
+    padding: $padding-small $padding;
     transition: border-color 0.2s, box-shadow 0.2s;
 
     &:focus-within {
-      border-color: #1976d2;
-      box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.2);
+      border-color: $primary-color;
+      box-shadow: $box-shadow;
     }
 
     &.invalid {
-      border-color: #d32f2f;
+      border-color: $color-error;
     }
 
     input {
@@ -45,14 +45,14 @@
         background: none;
         border: none;
         cursor: pointer;
-        color: #666;
-        padding: 0.25rem;
+        color: $secondary-color;
+        padding: $padding-xsmall;
         display: flex;
         align-items: center;
         justify-content: center;
 
         &:hover {
-          color: #000;
+          color: $primary-color;
         }
 
         .material-icons {
@@ -64,7 +64,7 @@
 
   .error-message {
     margin-top: 0.5rem;
-    color: #d32f2f;
-    font-size: 0.875rem;
+    color: $color-error;
+    font-size: $font-size-small;
   }
 }
