@@ -15,13 +15,4 @@ import { LoadMoreComponent } from "../../components/load-more/load-more.componen
 })
 export class HomeComponent {
   readonly store= inject(BikeStore);
-  formPristine = signal(true);
-
-  handleSearch = (city: string) => {
-    this.store.fetchBikes(city);
-    this.formPristine.set(false);
-    if(!city) {
-      this.store.reset();
-    }
-  }
 }

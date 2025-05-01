@@ -1,0 +1,29 @@
+<app-main-content [title]="'Bike details'">
+    <div *ngIf="store.loading(); else content" class="bike-loading">
+      <p>Loading bike details...</p>
+    </div>
+  
+    <ng-template #content>
+      <ng-container *ngIf="bike(); else notFound">
+        <div class="bike-detail">
+          <h2 class="title">{{ bike()?.title || 'Untitled Bike' }}</h2>
+  
+          <div class="bike-main">
+            <img 
+              [src]="bike()?.large_img || '/bike-placeholder.jpg'" 
+              alt="Bike image" 
+              class="bike-image" 
+            />
+            <app-bike-attributes [bike]="bike()!" />
+          </div>
+        </div>
+      </ng-container>
+  
+      <ng-template #notFound>
+        <div class="bike-not-found">
+          <p>{{ store.error() || 'Error retrieving bike.' }}</p>
+        </div>
+      </ng-template>
+    </ng-template>
+  </app-main-content>
+  

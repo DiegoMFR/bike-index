@@ -2,9 +2,9 @@
   <table>
     <thead>
       <tr>
-        <th>Title</th>
+        <th>Bike</th>
         <th>Stolen Location</th>
-        <th>Serial Number</th>
+        <th>Serial Nᵒ</th>
         <th></th>
       </tr>
     </thead>
@@ -14,10 +14,7 @@
         <td>{{ bike.stolen_location }}</td>
         <td class="overflow-hidden" title="{{ bike.serial }}">{{ bike.serial }}</td>
         <td>
-          <a href="bikes/{{bike.id}}">
-            See details
-          </a>
-
+          <a routerLink="bike/{{bike.id}}" routerLinkActive="active" ariaCurrentWhenActive="page">See details</a>
         </td>
       </tr>
     </tbody>

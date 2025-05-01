@@ -13,9 +13,9 @@ export class BikeStore {
   readonly error = signal('');
   readonly loading = signal(false);
   readonly endPageReached = signal(false);
+  readonly location = signal('');
 
-  private nextPage = 1;
-  private location = '';
+  private nextPage = 2;
   private readonly pageSize = 10;
 
   private readonly baseParams: BikeIndexSearchParams = {
@@ -26,6 +26,7 @@ export class BikeStore {
 
   private updateBikes(newBikes: BikeInfo[], append = false) {
     const updated = append ? [...this.bikes(), ...newBikes] : newBikes;
+    if (append) this.nextPage++;
     this.bikes.set(updated);
     if (newBikes.length < this.pageSize) this.endPageReached.set(true);
   }
@@ -38,8 +39,8 @@ export class BikeStore {
 
   fetchBikes(location: string): void {
     this.reset();
-    this.location = location;
-
+    this.location.set(location);
+    this.error.set('');
     this.withLoading(
       this.bikeService.searchBikes({ params: { ...this.baseParams, location } }).pipe(
         tap(res => this.updateBikes(res.bikes)),
@@ -49,12 +50,13 @@ export class BikeStore {
   }
 
   fetchMoreBikes(): void {
-    if (this.endPageReached() || !this.location) return;
+    console.log(this.nextPage);
 
-    this.nextPage++;
+    if (this.endPageReached() || !this.location()) return;
+    this.error.set('');
     this.withLoading(
       this.bikeService.searchBikes({
-        params: { ...this.baseParams, location: this.location, page: this.nextPage }
+        params: { ...this.baseParams, location: this.location(), page: this.nextPage }
       }).pipe(
         tap(res => this.updateBikes(res.bikes, true)),
         catchError(handleError(this.error, 'Error retrieving more bikes.'))
@@ -63,10 +65,11 @@ export class BikeStore {
   }
 
   fetchSingleBike(id: string): void {
+    this.error.set('');
     this.withLoading(
       this.bikeService.getBike(id).pipe(
         tap(res => res.bike && this.addBike(res.bike)),
-        catchError(handleError(this.error, 'Error retrieving bike.'))
+        catchError(handleError(this.error, 'Bike not found.'))
       )
     ).subscribe();
   }
@@ -81,8 +84,8 @@ export class BikeStore {
     this.bikes.set([]);
     this.error.set('');
     this.loading.set(false);
-    this.location = '';
-    this.nextPage = 1;
+    this.location.set('');
+    this.nextPage = 2;
     this.endPageReached.set(false);
   }
 }

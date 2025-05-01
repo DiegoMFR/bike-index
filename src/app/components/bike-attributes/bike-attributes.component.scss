@@ -1,0 +1,17 @@
+@use '../../../styles/variables' as *;
+
+.bike-attributes {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: $margin;
+    margin: $margin;
+  
+    dt {
+      font-weight: bolder;
+    }
+  
+    dd {
+      margin: 0;
+    }
+  }
+  

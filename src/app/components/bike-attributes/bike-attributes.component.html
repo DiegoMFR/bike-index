@@ -1,0 +1,12 @@
+<dl class="bike-attributes">
+    <div><dt>Manufacturer:</dt><dd>{{ bike.manufacturer_name }}</dd></div>
+    <div><dt>Model:</dt><dd>{{ bike.frame_model || 'N/A' }}</dd></div>
+    <div><dt>Serial:</dt><dd>{{ bike.serial }}</dd></div>
+    <div><dt>Status:</dt><dd>{{ bike.status }}</dd></div>
+    <div><dt>Year:</dt><dd>{{ bike.year || 'Unknown' }}</dd></div>
+    <div><dt>Color(s):</dt><dd>{{ bike.frame_colors && bike.frame_colors.join(', ') || 'Unknown' }}</dd></div>
+    <div><dt>Location Stolen:</dt><dd>{{ bike.stolen_location || 'Unknown' }}</dd></div>
+    <div><dt>Cycle Type:</dt><dd>{{ bike.cycle_type_slug }}</dd></div>
+    <div><dt>Propulsion:</dt><dd>{{ bike.propulsion_type_slug || 'Unknown' }}</dd></div>
+    <div><dt>Description:</dt><dd>{{ bike.description || 'N/A' }}</dd></div>
+  </dl>

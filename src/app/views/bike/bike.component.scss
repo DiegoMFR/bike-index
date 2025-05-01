@@ -1,0 +1,37 @@
+@use '../../../styles/variables' as *;
+
+.bike-detail {
+  padding: $padding-large;
+  border-radius: $border-radius;
+  border: 1px solid $background-color;
+
+  .title {
+    font-size: 1.8rem;
+    margin-bottom: $padding-large;
+  }
+
+  .bike-main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $padding-large;
+    width: 100%;
+    align-items: flex-start;
+
+    @media (max-width: $breakpoint-sm) {
+      flex-direction: column;
+    }
+  }
+
+  .bike-image {
+    width: 100%;
+    max-width: 50%;
+    border-radius: 0.5rem;
+    object-fit: contain;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.bike-not-found {
+  text-align: center;
+  color: $color-error;
+}
