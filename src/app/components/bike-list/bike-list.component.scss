@@ -19,9 +19,6 @@
         td:first-child {
             width: 40%;
             max-width: 40%;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
         }
 
         thead {
@@ -57,5 +54,11 @@
                 border-bottom: none;
             }
         }
+    }
+
+    .overflow-hidden {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 }

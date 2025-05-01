@@ -1,4 +1,6 @@
 <app-main-content [title]="'Stolen bike finder'">
     <app-bike-input (searchEvent)="handleSearch($event)"></app-bike-input>
     <app-bikes-loader *ngIf="!formPristine()"></app-bikes-loader>
+    <app-load-more *ngIf="store.bikes().length" (loadMoreEvent)="store.fetchMoreBikes()"
+        [isEndReached]="store.endPageReached()"></app-load-more>
 </app-main-content>

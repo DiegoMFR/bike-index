@@ -1,4 +1,4 @@
-<ng-container *ngIf="store.loading(); else dataBlock">
+<ng-container *ngIf="store.loading() && !store.bikes().length; else dataBlock">
     <div class="loading-state">
       <p>Loading bikes...</p>
     </div>

@@ -22,12 +22,26 @@ body {
 html, body { height: 100%; }
 
 
-.iconButton {
+.button {
   cursor: pointer;
   background: $background-color;
   border-radius: $border-radius;
-  padding: $padding;
+  padding: $padding $padding-large;
   border: none;
   margin-left: $margin-small;
   color: $secondary-color;
+  transition: $transition;
+
+  &:hover {
+    box-shadow: $box-shadow;
+  }
+
+  &.button-secondary {
+    background: $background-color;
+  }
+  
+  &.button-primary {
+    background: $primary-color;
+    color: $surface-color;
+  }
 }

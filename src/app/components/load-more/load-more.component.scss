@@ -1,19 +1,14 @@
 @use '../../../styles/variables' as *;
 
-.empty-msg, .error-msg {
-    padding: $padding-large;
-    text-align: center;
-}
-
-.error-msg {
-    color: $color-error;
-}
-
-.loading-state {
+.load-more-section {
     display: flex;
     gap: $margin;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     padding: $padding-large;
+
+    span {
+        color: $text-color-subtle;
+    }
   }

@@ -14,7 +14,7 @@
   @media (prefers-color-scheme: dark) {
     :root {
       --background-color: rgb(0, 0, 0);
-      --surface-color: #0e0e10;
+      --surface-color: #202024;
       --primary-color: #90caf9;
       --secondary-color: rgb(160, 160, 160);
       --text-color: #eee;
@@ -48,6 +48,7 @@
   $secondary-color: var(--secondary-color);
   $color-error: var(--error-color);
   $text-color: var(--text-color);
+  $text-color-subtle: color-mix(in srgb, var(--text-color) 30%, transparent);
   
   // Typography
   $font-family-title: Arimo, "Helvetica Neue", sans-serif;

@@ -1,0 +1,6 @@
+<section class="load-more-section">
+    <button (click)="loadMoreEvent.emit()" *ngIf="!isEndReached else noMoreItems" class="button button-primary">Load more</button>
+    <ng-template #noMoreItems>
+        <span>No more items to load</span>
+    </ng-template>
+</section>

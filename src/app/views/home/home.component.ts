@@ -4,10 +4,11 @@ import { BikeStore } from '../../stores/bikes.store';
 import { CommonModule } from '@angular/common';
 import { BikesLoaderComponent } from "../../components/bikes-loader/bikes-loader.component";
 import { BikeInputComponent } from "../../components/bike-input/bike-input.component";
+import { LoadMoreComponent } from "../../components/load-more/load-more.component";
 
 @Component({
   selector: 'app-home',
-  imports: [MainContentComponent, CommonModule, BikesLoaderComponent, BikeInputComponent],
+  imports: [MainContentComponent, CommonModule, BikesLoaderComponent, BikeInputComponent, LoadMoreComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
   standalone: true,
