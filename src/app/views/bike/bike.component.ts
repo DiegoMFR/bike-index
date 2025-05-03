@@ -1,5 +1,5 @@
 import { Component, computed, inject, Input, signal } from '@angular/core';
-import { MainContentComponent } from '../../components/main-content/main-content.component';
+import { MainContentComponent } from '../../components/ui/main-content/main-content.component';
 import { BikeStore } from '../../stores/bikes.store';
 import { BikeInfo } from '../../../types';
 import { CommonModule } from '@angular/common';

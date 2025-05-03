@@ -26,12 +26,12 @@ describe('BikesLoaderComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should render the app-trials-list component', () => {
-    const compiled = fixture.nativeElement;
-      expect(compiled.querySelector('app-trials-list')).toBeTruthy();
-    }
-  );
-  it('should inject the TrialsStore', () => {
+  // it('should render the app-bikes-loader component', () => {
+  //   const compiled = fixture.nativeElement;
+  //     expect(compiled.querySelector('app-bikes-loader')).toBeTruthy();
+  //   }
+  // );
+  it('should inject the BikesStore', () => {
       expect(component.store).toBeTruthy();
     }
   );

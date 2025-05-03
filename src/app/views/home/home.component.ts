@@ -1,5 +1,5 @@
 import { Component, inject, signal } from '@angular/core';
-import { MainContentComponent } from "../../components/main-content/main-content.component";
+import { MainContentComponent } from "../../components/ui/main-content/main-content.component";
 import { BikeStore } from '../../stores/bikes.store';
 import { CommonModule } from '@angular/common';
 import { BikesLoaderComponent } from "../../components/bikes-loader/bikes-loader.component";

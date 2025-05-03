@@ -26,12 +26,12 @@ describe('HomeComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should render the app-trials-list component', () => {
+  it('should render the app-bike-input component', () => {
     const compiled = fixture.nativeElement;
-      expect(compiled.querySelector('app-trials-list')).toBeTruthy();
+      expect(compiled.querySelector('app-bike-input')).toBeTruthy();
     }
   );
-  it('should inject the TrialsStore', () => {
+  it('should inject the bikesStore', () => {
       expect(component.store).toBeTruthy();
     }
   );

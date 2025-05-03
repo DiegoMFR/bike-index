@@ -4,7 +4,7 @@ import { PageHeaderComponent } from './page-header.component';
 import { provideHttpClient } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { provideRouter } from '@angular/router';
-import { routes } from '../../app.routes';
+import { routes } from '../../../app.routes';
 
 describe('PageHeaderComponent', () => {
   let component: PageHeaderComponent;

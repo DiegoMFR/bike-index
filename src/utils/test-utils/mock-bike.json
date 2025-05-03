@@ -1,0 +1,26 @@
+{
+    "date_stolen": 1714531200,
+    "description": "Matte silver electric bike with fat tires, missing front fender.",
+    "frame_colors": ["Silver, gray or bare metal", "Black"],
+    "frame_model": "Super73 ZX",
+    "id": 9999999,
+    "is_stock_img": false,
+    "large_img": "https://files.bikeindex.org/uploads/Pu/999999/large_mock_bike.jpeg",
+    "location_found": null,
+    "manufacturer_name": "Super73",
+    "external_id": "EXT-001122",
+    "registry_name": "Mock Registry",
+    "registry_url": "https://registry.mockbikes.com/entry/001122",
+    "serial": "ZX2023-001122",
+    "status": "stolen",
+    "stolen": true,
+    "stolen_coordinates": [37.7749, -122.4194],
+    "stolen_location": "San Francisco, CA 94103, USA",
+    "thumb": "https://files.bikeindex.org/uploads/Pu/999999/small_mock_bike.jpeg",
+    "title": "Super73 ZX Custom Matte Silver",
+    "url": "https://bikeindex.org/bikes/9999999",
+    "year": 2023,
+    "propulsion_type_slug": "pedal-assist",
+    "cycle_type_slug": "ebike"
+  }
+  

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { MainContentComponent } from "../../components/main-content/main-content.component";
+import { MainContentComponent } from "../../components/ui/main-content/main-content.component";
 
 @Component({
   selector: 'app-page-not-found',

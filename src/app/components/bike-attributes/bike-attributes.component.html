@@ -1,12 +1,39 @@
 <dl class="bike-attributes">
-    <div><dt>Manufacturer:</dt><dd>{{ bike.manufacturer_name }}</dd></div>
-    <div><dt>Model:</dt><dd>{{ bike.frame_model || 'N/A' }}</dd></div>
-    <div><dt>Serial:</dt><dd>{{ bike.serial }}</dd></div>
-    <div><dt>Status:</dt><dd>{{ bike.status }}</dd></div>
-    <div><dt>Year:</dt><dd>{{ bike.year || 'Unknown' }}</dd></div>
-    <div><dt>Color(s):</dt><dd>{{ bike.frame_colors && bike.frame_colors.join(', ') || 'Unknown' }}</dd></div>
-    <div><dt>Location Stolen:</dt><dd>{{ bike.stolen_location || 'Unknown' }}</dd></div>
-    <div><dt>Cycle Type:</dt><dd>{{ bike.cycle_type_slug }}</dd></div>
-    <div><dt>Propulsion:</dt><dd>{{ bike.propulsion_type_slug || 'Unknown' }}</dd></div>
-    <div><dt>Description:</dt><dd>{{ bike.description || 'N/A' }}</dd></div>
-  </dl>
+  <dt>Manufacturer:</dt>
+  <dd>{{ bike.manufacturer_name || 'Unknown' }}</dd>
+
+  <dt>Model:</dt>
+  <dd>{{ bike.frame_model || 'N/A' }}</dd>
+
+  <dt>Serial:</dt>
+  <dd>{{ bike.serial || 'Unknown' }}</dd>
+
+  <dt>Status:</dt>
+  <dd>{{ bike.status || 'Unknown' }}</dd>
+
+  <dt>Year:</dt>
+  <dd>{{ bike.year || 'Unknown' }}</dd>
+
+  <dt>Color(s):</dt>
+  <dd>{{ bike.frame_colors?.join(', ') || 'Unknown' }}</dd>
+
+  <dt>Location Stolen:</dt>
+  <dd>{{ bike.stolen_location || 'Unknown' }}</dd>
+
+  <dt>Cycle Type:</dt>
+  <dd>{{ bike.cycle_type_slug || 'Unknown' }}</dd>
+
+  <dt>Propulsion:</dt>
+  <dd>{{ bike.propulsion_type_slug || 'Unknown' }}</dd>
+
+  <dt>Description:</dt>
+  <dd>{{ bike.description || 'N/A' }}</dd>
+
+  <dt>Date Stolen:</dt>
+  <dd>
+    <ng-container *ngIf="bike.date_stolen; else unknown">
+      {{ bike.date_stolen * 1000 | date:'mediumDate' }}
+    </ng-container>
+    <ng-template #unknown>Unknown</ng-template>
+  </dd>
+</dl>
