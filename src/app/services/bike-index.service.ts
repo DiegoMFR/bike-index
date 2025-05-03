@@ -1,16 +1,8 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { BikeSearchResponse, SingleBikeResponse } from '../../types';
+import { BikeIndexSearchParams, BikeSearchResponse, SingleBikeResponse } from '../../types';
 import { environment } from '../../environments/environment';
-
-export interface BikeIndexSearchParams {
-  page?: number,
-  per_page?: number,
-  location?: string,
-  stolenness?: 'non' | 'stolen' | 'proximity',
-  distance?: string,
-}
 
 @Injectable({ providedIn: 'root' })
 export class BikeIndexService {

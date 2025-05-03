@@ -31,3 +31,11 @@ export interface BikeSearchResponse {
 export interface SingleBikeResponse {
     bike: BikeInfo,
 }
+
+export interface BikeIndexSearchParams {
+    page?: number,
+    per_page?: number,
+    location?: string,
+    stolenness?: 'non' | 'stolen' | 'proximity',
+    distance?: string,
+  }

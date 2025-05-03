@@ -1,7 +1,7 @@
 import { Injectable, inject, signal } from '@angular/core';
 import { catchError, tap } from 'rxjs/operators';
-import { BikeIndexSearchParams, BikeIndexService } from '../services/bike-index.service';
-import { BikeInfo } from '../../types';
+import { BikeIndexService } from '../services/bike-index.service';
+import { BikeIndexSearchParams, BikeInfo } from '../../types';
 import { captureError, PAGE_SIZE, trackLoading } from './storeUtils';
 
 @Injectable({ providedIn: 'root' })
