@@ -1,9 +1,8 @@
 import { Injectable, inject, signal } from '@angular/core';
-import { catchError, finalize, tap } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 import { BikeIndexSearchParams, BikeIndexService } from '../services/bike-index.service';
 import { BikeInfo } from '../../types';
-import { handleError } from './storeUtils';
-import { Observable } from 'rxjs';
+import { captureError, PAGE_SIZE, trackLoading } from './storeUtils';
 
 @Injectable({ providedIn: 'root' })
 export class BikeStore {
@@ -16,36 +15,30 @@ export class BikeStore {
   readonly location = signal('');
 
   private nextPage = 2;
-  private readonly pageSize = 10;
 
   private readonly baseParams: BikeIndexSearchParams = {
     stolenness: 'proximity',
     distance: '1',
-    per_page: this.pageSize,
+    per_page: PAGE_SIZE,
   };
 
   private updateBikes(newBikes: BikeInfo[], append = false) {
     const updated = append ? [...this.bikes(), ...newBikes] : newBikes;
     if (append) this.nextPage++;
     this.bikes.set(updated);
-    if (newBikes.length < this.pageSize) this.endPageReached.set(true);
-  }
-
-  //TODO move to utils
-  private withLoading<T>(obs$: Observable<T>) {
-    this.loading.set(true);
-    return obs$.pipe(finalize(() => this.loading.set(false)));
+    if (newBikes.length < PAGE_SIZE) this.endPageReached.set(true);
   }
 
   fetchBikes(location: string): void {
     this.reset();
     this.location.set(location);
     this.error.set('');
-    this.withLoading(
+    trackLoading(
       this.bikeService.searchBikes({ params: { ...this.baseParams, location } }).pipe(
         tap(res => this.updateBikes(res.bikes)),
-        catchError(handleError(this.error, 'Error retrieving bikes.'))
-      )
+        catchError(captureError(this.error, 'Error retrieving bikes.'))
+      ),
+      this.loading
     ).subscribe();
   }
 
@@ -54,23 +47,25 @@ export class BikeStore {
 
     if (this.endPageReached() || !this.location()) return;
     this.error.set('');
-    this.withLoading(
+    trackLoading(
       this.bikeService.searchBikes({
         params: { ...this.baseParams, location: this.location(), page: this.nextPage }
       }).pipe(
         tap(res => this.updateBikes(res.bikes, true)),
-        catchError(handleError(this.error, 'Error retrieving more bikes.'))
-      )
+        catchError(captureError(this.error, 'Error retrieving more bikes.'))
+      ),
+      this.loading
     ).subscribe();
   }
 
   fetchSingleBike(id: string): void {
     this.error.set('');
-    this.withLoading(
+    trackLoading(
       this.bikeService.getBike(id).pipe(
         tap(res => res.bike && this.addBike(res.bike)),
-        catchError(handleError(this.error, 'Bike not found.'))
-      )
+        catchError(captureError(this.error, 'Bike not found.'))
+      ),
+      this.loading
     ).subscribe();
   }
 
