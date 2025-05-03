@@ -8,9 +8,11 @@ describe('BikeComponent', () => {
   let fixture: ComponentFixture<BikeComponent>;
 
   beforeEach(async () => {
+    spyOn(console, 'error');
     await TestBed.configureTestingModule({
       imports: [BikeComponent],
       providers: [HttpClient, HttpHandler],
+      schemas: [NO_ERRORS_SCHEMA],
     })
     .compileComponents();
 

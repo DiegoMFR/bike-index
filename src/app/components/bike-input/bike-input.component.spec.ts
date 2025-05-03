@@ -1,15 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BikeInputComponent } from './bike-input.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { signal } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { BikeStore } from '../../stores/bikes.store';
-
-class MockBikeStore {
-  fetchBikes = jasmine.createSpy('fetchBikes');
-  reset = jasmine.createSpy('reset');
-  location = signal('Test City');
-}
+import { MockBikeStore } from '../../../utils/test-utils/mockApis';
 
 describe('BikeInputComponent', () => {
   let component: BikeInputComponent;

@@ -9,7 +9,6 @@ describe('HomeComponent', () => {
   let fixture: ComponentFixture<HomeComponent>;
 
   beforeEach(async () => {
-    spyOn(console, 'error');
     await TestBed.configureTestingModule({
       schemas: [NO_ERRORS_SCHEMA],
       providers: [provideHttpClient(), provideHttpClientTesting()],
@@ -26,13 +25,13 @@ describe('HomeComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should render the app-bike-input component', () => {
+  it('should render the app-bike-input and app-bikes-loader component', () => {
     const compiled = fixture.nativeElement;
-      expect(compiled.querySelector('app-bike-input')).toBeTruthy();
-    }
-  );
+    expect(compiled.querySelector('app-bike-input')).toBeTruthy();
+    expect(compiled.querySelector('app-bikes-loader')).toBeTruthy();
+  });
+  
   it('should inject the bikesStore', () => {
-      expect(component.store).toBeTruthy();
-    }
-  );
+    expect(component.store).toBeTruthy();
+  });
 });

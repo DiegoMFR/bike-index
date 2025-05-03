@@ -12,7 +12,7 @@ describe('BikeStore', () => {
 
   beforeEach(() => {
     spyOn(console, 'error');
-    serviceSpy = jasmine.createSpyObj('BikeIndexService', ['searchBikes', 'getBike']);
+    serviceSpy = jasmine.createSpyObj<BikeIndexService>('BikeIndexService', ['searchBikes', 'getBike']);
 
     serviceSpy.searchBikes.and.returnValue(of({ bikes: [myMockBike] }));
     serviceSpy.getBike.and.returnValue(of({ bike: myMockBike }));
